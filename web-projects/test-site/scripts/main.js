@@ -23,8 +23,7 @@ let myButton = document.querySelector('button');
 
 function setUserName() {
     let myName = prompt('请输入你的名字');
-    localStorage.setItem('name', myName);
-    myHeading.textContent = 'Mozilla 酷毙了' + myName;
+     myHeading.textContent = 'Mozilla 酷毙了' + myName;
 }
 
 if (!localStorage.getItem('name')) {
