@@ -1,24 +1,25 @@
-// 添加说明信息
+// 添加段落
 const info = document.createElement('p');
 info.textContent = 'Below is a dynamic list. Click anywhere on the page to add a new list item. Click an existing list item to change its text to something else.';
-// document.querySelector('body').appendChild(info);
 document.body.appendChild(info);
 
-// 添加无序列表 ul
+// 添加空列表
 const list = document.createElement('ul');
-// document.querySelector('body').appendChild(list);
 document.body.appendChild(list);
 
-// 页面点击添加 li
+// 添加页面和列表点击事件
 const html = document.querySelector('html');
 html.onclick = () => {
     const listItem = document.createElement('li');
-    const listContent = prompt('What content do you want the list item to have?');
+    const listContent = prompt('请输入想显示的内容');
     listItem.textContent = listContent;
     list.appendChild(listItem);
 
-    listItem.onclick = () => {
-        const listContent = prompt('Enter new content for your list item');
-        this.textContent(listContent);
+    listItem.onclick = (e) => {
+        e.stopPropagation();
+        const listContent = prompt('修改内容');
+        // 箭头函数不会生成自己的 this，此处 this 代表 Windows 对象
+        // this.textContent = listContent;
+        listItem.textContent = listContent;
     }
-}
+};
