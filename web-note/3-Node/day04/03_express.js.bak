@@ -2,9 +2,5 @@
 const query = require('querystring');
 // 获取第三方模块express框架
 const express = require('express');
-// 创建web服务器
+console.log(express);
 const app = express();
-
-app.get('/reg', (req, res) => {
-  
-});
